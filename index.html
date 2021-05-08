@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Covid-19 Tracker</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- App is devided into two columns LEFT AND RIGHT -->
+        <!-- APP LEFT code is start from here -->
+        <div class="Left">
+            <!-- Header >> branding, countries dropDown, cases box, recovery box, deaths box -->
+            <header class="left_header">
+                <!-- NAV >> logo and dropdown -->
+                <nav>
+                    <h3 class="logo">Covid-19 Tracker</h3>
+                    <div class="nav_dropdown">
+                        <select id="dropdown" class="dropdown"></select>
+                    </div>
+                </nav>
+                <h4 class="area" style="text-align: center;text-transform: uppercase;letter-spacing: 3px;">worldwide</h4>
+                <div class="stats">
+                    <div class="stats_box">
+                        <p class="stats_box_cases">Today cases</p>
+                        <h3 class="stats_box_noOf" id="stats_cases">---</h3>
+                        <p class="stats_box_cases" id="stats_totalCases">total: </p>
+                    </div>
+                    <div class="stats_box">
+                        <p class="stats_box_cases">Today recovered</p>
+                        <h3 class="stats_box_noOf" id="stats_reco">---</h3>
+                        <p class="stats_box_cases" id="stats_totalReco">total: </p>
+                    </div>
+                    <div class="stats_box">
+                        <p class="stats_box_cases">Today deaths</p>
+                        <h3 class="stats_box_noOf" id="stats_deaths">---</h3>
+                        <p class="stats_box_cases" id="stats_totalDeaths">total: </p>
+                    </div>
+                </div>
+            </header>
+            <div id='map' style='width: 100%; height: 450px;border: 2px solid;padding: 0;'></div>
+        </div>
+
+        <!-- APP RIGHT SECTION code starts form here -->
+        <div class="Right">
+            <div class="dataChart">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <script>
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoicXVyYmFuYXdhbiIsImEiOiJja29ka3Rod3MwMnV2MnZvNGNuaGk1MXJmIn0.LTkflklYlO_7BFok9jeObQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            zoom: 1
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
